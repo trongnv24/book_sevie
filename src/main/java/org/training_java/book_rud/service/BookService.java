@@ -12,6 +12,8 @@ import java.util.List;
 public interface BookService {
     BookRepository create(BookRequest request);
 
+    void deleteById(long id);
+
     List<BookReponse> getAll();
 
     BookReponse getOneById(String id);

@@ -10,7 +10,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
-    private int id;
+    private String id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -22,12 +22,12 @@ public class Book {
     public Book() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = String.valueOf(id);
     }
 
     public String getName() {

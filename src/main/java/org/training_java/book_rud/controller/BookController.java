@@ -19,13 +19,7 @@ import java.awt.print.Book;
         public class BookController {
             @Autowired
             private BookService bookService;
-
             @PostMapping
-            @ResponseStatus(HttpStatus.CREATED)
-            public BookReponse create(@Validated @RequestBody BookRequest request) {
-
-               return null;
-    }
 
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -45,11 +39,5 @@ import java.awt.print.Book;
         bookService.deleteById(String.valueOf(id));
     }
 
-    @RequestMapping("/{pageNumber}/{pageSize}")
-    public Page<Book> bookPagination(@PathVariable Integer pageNumber,
-                                     @PathVariable Integer pageSize) {
 
-
-        return null;
-    }
 }

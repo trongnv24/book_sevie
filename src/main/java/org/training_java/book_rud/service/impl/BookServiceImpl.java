@@ -54,17 +54,29 @@ import java.util.Optional;
         return response;
     }
 
-
     @Override
     public BookReponse update(BookRequest request, String id) {
-        return null;
+        Optional<Book> optionalBook = bookRepository.findById(id);
+        if (!optionalBook.isPresent()) {
+            throw new RuntimeException();
+        }
+        Book book = optionalBook.get();
+        book.setName(request.getName());
+        book.setAuthor(request.getAuthor());
+        book.setCode(request.getCode());
+       BookReponse response = new BookReponse();
+        response.setId(book.getId());
+        response.setName(book.getName());
+        response.setAuthor(book.getAuthor());
+        response.setCode(book.getCode());
+        return response;
     }
 
     @Override
     public void deleteById(String id) {
+        bookRepository.deleteById(id);
 
     }
-
 
     @Override
     public BookReponse getOneById(String Id) {
@@ -75,8 +87,6 @@ import java.util.Optional;
         response.setName(book.get().getName());
         response.setAuthor(book.get().getAuthor());
         response.setCode(book.get().getCode());
-
-
         return response;
 
     }
