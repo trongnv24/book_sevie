@@ -1,18 +1,14 @@
 package org.training_java.book_rud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.training_java.book_rud.dto.request.BookRequest;
 import org.training_java.book_rud.dto.response.BookReponse;
 import org.training_java.book_rud.service.BookService;
 
-import java.awt.print.Book;
 
-
-        @RestController
+@RestController
 
         @RequestMapping("/api/v1/books")
 
@@ -23,8 +19,8 @@ import java.awt.print.Book;
 
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public BookReponse getOneById(@PathVariable("id") String id) {
-        return bookService.getOneById(id);
+    public String getOneById(@PathVariable("id") String id) {
+        return bookService.getOneById();
     }
 
     @PutMapping("{id}")

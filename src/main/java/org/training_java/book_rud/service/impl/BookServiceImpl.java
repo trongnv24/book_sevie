@@ -30,13 +30,8 @@ import java.util.Optional;
 
         return bookRepository;
 
-
     }
 
-    @Override
-    public void deleteById(long id) {
-        bookRepository.deleteById(String.valueOf(id));
-    }
 
     @Override
     public List<BookReponse> getAll() {
@@ -79,7 +74,7 @@ import java.util.Optional;
     }
 
     @Override
-    public BookReponse getOneById(String Id) {
+    public String getOneById() {
 
         Optional<Book> book = bookRepository.findById(getOneById());
         BookReponse response = new BookReponse();
@@ -87,13 +82,10 @@ import java.util.Optional;
         response.setName(book.get().getName());
         response.setAuthor(book.get().getAuthor());
         response.setCode(book.get().getCode());
-        return response;
+       return getOneById();
 
     }
 
-    private String getOneById() {
-        return null;
-    }
 
 
 }
