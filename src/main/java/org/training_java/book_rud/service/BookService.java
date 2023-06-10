@@ -11,8 +11,6 @@ public interface BookService {
     BookRepository create(BookRequest request);
 
 
-    List<BookReponse> getAll();
-
     String getOneById();
 
     BookReponse update(BookRequest request, String id);
